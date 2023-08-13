@@ -3,7 +3,7 @@
  * MIT Licensed
  */
 
-import * as req from 'axios/dist/node/axios.cjs';
+import * as req from 'axios';
 import { NtlmClient } from 'axios-ntlm';
 import * as debugBuilder from 'debug';
 import { ReadStream } from 'fs';
