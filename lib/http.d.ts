@@ -1,6 +1,6 @@
 /// <reference types="node" />
 /// <reference types="node" />
-import * as req from 'axios';
+import * as req from 'axios/dist/node/axios.cjs';
 import { ReadStream } from 'fs';
 import { IExOptions, IHeaders, IHttpClient, IOptions } from './types';
 export interface IAttachment {
@@ -37,6 +37,6 @@ export declare class HttpClient implements IHttpClient {
      * @param {Object} The parsed body
      */
     handleResponse(req: req.AxiosPromise, res: req.AxiosResponse, body: any): any;
-    request(rurl: string, data: any, callback: (error: any, res?: any, body?: any) => any, exheaders?: IHeaders, exoptions?: IExOptions, caller?: any): req.AxiosPromise<any>;
+    request(rurl: string, data: any, callback: (error: any, res?: any, body?: any) => any, exheaders?: IHeaders, exoptions?: IExOptions, caller?: any): req.AxiosPromise;
     requestStream(rurl: string, data: any, exheaders?: IHeaders, exoptions?: IExOptions, caller?: any): req.AxiosPromise<ReadStream>;
 }

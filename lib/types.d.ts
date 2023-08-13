@@ -1,6 +1,6 @@
 /// <reference types="node" />
 /// <reference types="node" />
-import * as req from 'axios';
+import * as req from 'axios/dist/node/axios.cjs';
 import { ReadStream } from 'fs';
 export interface IHeaders {
     [k: string]: any;
