@@ -1,5 +1,5 @@
 {
-  "name": "soap",
+  "name": "soap-1.x",
   "version": "1.0.0",
   "description": "A minimal node SOAP client",
   "engines": {
@@ -19,11 +19,11 @@
     "xml-crypto": "^3.0.0"
   },
   "peerDependencies": {
-    "axios": "^0.27.2"
+    "axios": "1.4.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vpulim/node-soap.git"
+    "url": "https://github.com/clacs8524/node-soap"
   },
   "main": "./index.js",
   "types": "./lib/soap.d.ts",
