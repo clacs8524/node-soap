@@ -65,7 +65,6 @@ export class Element {
   public $targetNamespace?;
   public children: Element[] = [];
   public ignoredNamespaces;
-  public strict: boolean;
   public name?: string;
   public nsName?;
   public prefix?: string;
@@ -125,10 +124,7 @@ export class Element {
       return;
     }
 
-    let ChildClass = this.allowedChildren[splitQName(nsName).name];
-    if (ChildClass == null && !this.strict) {
-      ChildClass = UnexpectedElement;
-    }
+    const ChildClass = this.allowedChildren[splitQName(nsName).name];
     if (ChildClass) {
       const child = new ChildClass(nsName, attrs, options, schemaXmlns);
       child.init();
@@ -175,21 +171,11 @@ export class Element {
       this.valueKey = options.valueKey || '$value';
       this.xmlKey = options.xmlKey || '$xml';
       this.ignoredNamespaces = options.ignoredNamespaces || [];
-      this.strict = options.strict || false;
     } else {
       this.valueKey = '$value';
       this.xmlKey = '$xml';
       this.ignoredNamespaces = [];
-      this.strict = false;
     }
-  }
-}
-
-export class UnexpectedElement extends Element {
-  public startElement(stack: Element[], nsName: string, attrs, options: IWsdlBaseOptions, schemaXmlns) {
-    const child = new UnexpectedElement(nsName, attrs, options, schemaXmlns);
-    child.init();
-    stack.push(child);
   }
 }
 

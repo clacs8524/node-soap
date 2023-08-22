@@ -40,7 +40,7 @@ export function splitQName<T>(nsName: T) {
     };
   }
 
-  const [topLevelName] = nsName.split('|', 1);
+  const [topLevelName] = nsName.split('|');
 
   const prefixOffset = topLevelName.indexOf(':');
 
